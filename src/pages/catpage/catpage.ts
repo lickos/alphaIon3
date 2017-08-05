@@ -33,7 +33,11 @@ export class CatpagePage {
   nextCatId: string;
   showSubmenu: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getdata: GetdataProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public getdata: GetdataProvider
+  ) {
     this.urlTemp = this.navParams.get("url");
     this.catId = this.navParams.get("catId");
     this.url = this.urlTemp + this.catId;
@@ -99,7 +103,10 @@ export class CatpagePage {
         this.catIdTemp += 1;
         this.nextCatId = this.catIdTemp.toString();
         this.catId = this.nextCatId;
-        this.navCtrl.push(CatpagePage, { url: this.urlTemp, catId: this.nextCatId });
+        this.navCtrl.push(CatpagePage, {
+          url: this.urlTemp,
+          catId: this.nextCatId
+        });
       } else this.navCtrl.push(CatpagePage, { url: this.urlTemp, catId: "1" });
     } else if (e.direction == 4) {
       if (this.catId != "1") {
@@ -107,13 +114,16 @@ export class CatpagePage {
         this.catIdTemp -= 1;
         this.nextCatId = this.catIdTemp.toString();
         this.catId = this.nextCatId;
-        this.navCtrl.push(CatpagePage, { url: this.urlTemp, catId: this.nextCatId });
+        this.navCtrl.push(CatpagePage, {
+          url: this.urlTemp,
+          catId: this.nextCatId
+        });
       } else this.navCtrl.push(CatpagePage, { url: this.urlTemp, catId: "9" });
     }
   }
 
   openArticle(item) {
-    this.navCtrl.push('ArticlePage', { items: item });
+    this.navCtrl.push("ArticlePage", { items: item });
   }
 
   openSubMenu() {

@@ -1,12 +1,76 @@
 <ion-header>
-
   <ion-navbar>
     <alphaheader></alphaheader>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-slides text-wrap autoplay="4000" style="height:70%; background-color:#252525">
+    <ion-slide (click)="openArticle(CypData)">
+      <div class="imageDiv">
+        <img class="carouselImage" src="{{CypData?.image_url}}" />
+      </div>
+      <ion-badge class="CyprusClass badgeClass">{{CypData?.category}}</ion-badge>
+      <h3>{{CypData?.title | removequotes }}</h3>
+      <p>{{CypData?.teaser | removequotes }}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{CypData?.date}} - {{CypData?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide (click)="openArticle(PolData)">
+      <div class="imageDiv">
+        <img class="carouselImage" src="{{PolData?.image_url}}" />
+      </div>
+      <ion-badge class="PolitikiClass badgeClass">{{PolData?.category}}</ion-badge>
+      <h3>{{PolData?.title | removequotes}}</h3>
+      <p>{{PolData?.teaser | removequotes}}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{PolData?.date}} - {{PolData?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide (click)="openArticle(SportsData)">
+      <div class="imageDiv">
+        <img class="carouselImage" src="{{SportsData?.image_url}}" />
+      </div>
+      <ion-badge class="SportsClass badgeClass">{{SportsData?.category}}</ion-badge>
+      <h3 padding-left>{{SportsData?.title | removequotes}}</h3>
+      <p padding-left>{{SportsData?.teaser | removequotes}}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{SportsData?.date}} - {{SportsData?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide (click)="openArticle(EntData)">
+      <div class="imageDiv">
+        <img class="carouselImage" src="{{EntData?.image_url}}" />
+      </div>
+      <ion-badge class="EntertainmentClass badgeClass">{{EntData?.category}}</ion-badge>
+      <h3 padding-left>{{EntData?.title | removequotes}}</h3>
+      <p padding-left>{{EntData?.teaser | removequotes}}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{EntData?.date}} - {{EntData?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+    <ion-slide (click)="openArticle(IntData)">
+      <div class="imageDiv">
+        <img class="carouselImage" src="{{IntData?.image_url}}" />
+      </div>
+      <ion-badge class="DiethniClass badgeClass">{{IntData?.category}}</ion-badge>
+      <h3 padding-left>{{IntData?.title | removequotes}}</h3>
+      <p padding-left>{{IntData?.teaser | removequotes}}</p>
+      <ion-item class="transparent" padding>
+        <ion-icon name="ios-clock-outline" color="textColor" item-start> {{IntData?.date}} - {{IntData?.time}}</ion-icon>
+        <ion-icon name="md-share" padding-right color="pnored" item-end></ion-icon>
+        <ion-icon name="md-bookmark" color="pnored" item-end></ion-icon>
+      </ion-item>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
