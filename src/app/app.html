@@ -20,137 +20,147 @@
 
   <ion-content class="lighter">
     <ion-list>
-      <button menuClose class="lighter" no-padding ion-item (click)="openPage('https://alphanews.live/json/cat/','1')">
+      <button class="lighter" no-padding clear block ion-button (click)="openCyp()">
         <ion-grid>
-          <ion-row>
+          <ion-row justify-content-center	>
             <ion-col col-1 class="CyprusCol">
             </ion-col>
-            <ion-col col-11 padding-left>
+            <ion-col col-9 padding-left class="taleft">
               <div>Κύπρος</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-icon item-end name="ios-arrow-down"></ion-icon>
       </button>
       <button class="darker" no-lines menuClose *ngIf="showMeCyp" ion-item>
         Νέα Αγοράς
       </button>
 
-      <button class="lighter" no-padding ion-item menuClose (click)="openPage('https://alphanews.live/json/cat/', '2')">
+      <button class="lighter" no-padding clear block ion-button (click)="openPol()">
         <ion-grid>
-          <ion-row>
+          <ion-row justify-content-center	>
             <ion-col col-1 class="PolitikiCol">
             </ion-col>
-            <ion-col col-9 padding-left>
+            <ion-col col-9 padding-left class="taleft">
               <div>Πολιτική</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-icon item-end name="ios-arrow-down"></ion-icon>
       </button>
-      <button class="darker" no-lines menuClose *ngIf="showMe" ion-item (click)="openPolitiki()">
+      <button class="darker" no-lines menuClose *ngIf="showMePol" ion-item (click)="openKipriako()">
           Κυπριακό
         </button>
-      <button class="darker" *ngIf="showMe" ion-item (click)="showItems()">
+      <button class="darker" *ngIf="showMePol" ion-item (click)="openEnergeia()">
           Ενέργεια
         </button>
-      <button class="lighter" no-padding menuClose ion-item (click)="openPage('https://alphanews.live/json/cat/', '4')">
+      <button menuClose class="lighter" no-padding clear block ion-button (click)="openPage('4')">
         <ion-grid>
-          <ion-row>
+          <ion-row justify-content-center	>
             <ion-col col-1 class="GreeceCol">
             </ion-col>
-            <ion-col col-9 padding-left>
+            <ion-col col-11 padding-left class="taleft">
               <div>Ελλάδα</div>
             </ion-col>
           </ion-row>
         </ion-grid>
       </button>
-      <button class="lighter" no-padding menuClose ion-item (click)="openPage('https://alphanews.live/json/cat/', '5')">
+     <button menuClose class="lighter" no-padding clear block ion-button (click)="openPage('5')">
         <ion-grid>
-          <ion-row>
+          <ion-row justify-content-center	>
             <ion-col col-1 class="DiethniCol">
             </ion-col>
-            <ion-col col-9 padding-left>
+            <ion-col col-11 padding-left class="taleft">
               <div>Διεθνή</div>
             </ion-col>
           </ion-row>
         </ion-grid>
       </button>
-      <button class="lighter" no-padding ion-item menuClose (click)="openPage('https://alphanews.live/json/cat/', '6')">
+      <button class="lighter" no-padding clear block ion-button (click)="openSports('6')">
         <ion-grid>
-          <ion-row>
+          <ion-row justify-content-center	>
             <ion-col col-1 class="SportsCol">
             </ion-col>
-            <ion-col col-11 padding-left>
+            <ion-col col-9 padding-left class="taleft">
               <div>Αθλητισμός</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-icon item-end name="ios-arrow-down"></ion-icon>
       </button>
-      <button class="darker" no-lines menuClose *ngIf="showMe2" ion-item (click)="openKypriakoProtathlima()">
+      <button class="darker" no-lines menuClose *ngIf="showMeSports" ion-item (click)="openKypriakoProtathlima()">
           Κυπριακό Πρωτάθλημα
         </button>
-      <button class="darker" no-lines menuClose *ngIf="showMe2" ion-item (click)="openEllinikoProtathlima()">
+      <button class="darker" no-lines menuClose *ngIf="showMeSports" ion-item (click)="openEllinikoProtathlima()">
           Ελληνικό Πρωτάθλημα
         </button>
-      <button class="darker" no-lines menuClose *ngIf="showMe2" ion-item (click)="openDiethniProtathlimata()">
+      <button class="darker" no-lines menuClose *ngIf="showMeSports" ion-item (click)="openDiethniProtathlimata()">
           Διεθνή Πρωταθλήματα
         </button>
-      <button class="darker" menuClose *ngIf="showMe2" ion-item (click)="openAthlitismos()">
+      <button class="darker" menuClose *ngIf="showMeSports" ion-item (click)="openAthlitismos()">
           Αθλητισμός
         </button>
-      <button class="lighter" no-padding menuClose ion-item (click)="openPage('https://alphanews.live/json/cat/', '9')">
-          <ion-grid>
-            <ion-row>
-              <ion-col col-1 class="EconomyCol">
-              </ion-col>
-              <ion-col col-9 padding-left>
-                <div>Οικονομία</div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </button>
-      <button class="lighter" no-padding menuClose ion-item (click)="openPage('https://alphanews.live/json/cat/', '8')">
-          <ion-grid>
-            <ion-row>
-              <ion-col col-1 class="HealthCol">
-              </ion-col>
-              <ion-col col-11 padding-left>
-                <div>Υγεία</div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-          <ion-icon item-end name="ios-arrow-down"></ion-icon>
-        </button>
-      <button class="darker" *ngIf="showYgeia" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+     <button menuClose class="lighter" no-padding clear block ion-button (click)="openPage('9')">
+        <ion-grid>
+          <ion-row justify-content-center	>
+            <ion-col col-1 class="EconomyCol">
+            </ion-col>
+            <ion-col col-11 padding-left class="taleft">
+              <div>Οικονομία</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </button>
+      <button class="lighter" no-padding clear block ion-button (click)="openHealth()">
+        <ion-grid>
+          <ion-row justify-content-center	>
+            <ion-col col-1 class="HealthCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft">
+              <div>Υγεία</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </button>
+      <button class="darker" *ngIf="showMeHealth" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
           Fitness
         </button>
-      <button class="darker" no-lines menuClose *ngIf="showYgeia" ion-item (click)="openDiethniProtathlimata()">
+      <button class="darker" no-lines menuClose *ngIf="showMeHealth" ion-item (click)="openDiethniProtathlimata()">
           Ψυχολογία
         </button>
-      <button class="lighter" no-padding menuClose ion-item (click)="openPage('https://alphanews.live/json/cat/7')">
-          <ion-grid>
-            <ion-row>
-              <ion-col col-1 class="EntertainmentCol">
-              </ion-col>
-              <ion-col col-11 padding-left>
-                <div>Ψυχαγωγία</div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-          <ion-icon item-end name="ios-arrow-down"></ion-icon>
-        </button>
-      <button class="darker" *ngIf="showPsich" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+       <button class="lighter" no-padding clear block ion-button (click)="openEnt()">
+        <ion-grid>
+          <ion-row justify-content-center	>
+            <ion-col col-1 class="EntertainmentCol">
+            </ion-col>
+            <ion-col col-9 padding-left class="taleft">
+              <div>Ψυχαγωγία</div>
+            </ion-col>
+            <ion-col col-2>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </button>
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
           Προτάσεις
         </button>
-      <button class="darker" *ngIf="showPsich" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
           Showbiz
         </button>
-      <button class="darker" *ngIf="showPsich" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
           Συνεντέυξεις
         </button>
-      <button class="darker" *ngIf="showPsich" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
+      <button class="darker" *ngIf="showMeEnt" no-lines menuClose ion-item (click)="openDiethniProtathlimata()">
           Κουζίνα
         </button>
       <button class="lighter" menuClose ion-item (click)="openOikonomia()">

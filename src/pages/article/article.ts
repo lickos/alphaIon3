@@ -11,9 +11,9 @@ export class ArticlePage {
   el: HTMLElement;
   BadgeClass: any;
 
+
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.items = this.navParams.get('items');
-    console.log(this.items)
     switch (this.items.category) {
       case 'Κύπρος': {
         this.BadgeClass = 'CyprusClass';

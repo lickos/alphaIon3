@@ -14,6 +14,13 @@ export class HomePage {
   EntData: any;
   IntData: any;
   badgeClass: string;
+  backImage: string = "http://alphanews.live/sites/default/files/styles/media_image/public/2017-08/20631418_10213406715825402_2006238752_n.png?itok=bD437OY-";
+  CypData1: any;
+  CypData2: any;
+  PolData1: any;
+  PolData2: any;
+  SportsData1:any;
+  SportsData2:any;
 
   constructor(
     public navCtrl: NavController,
@@ -26,16 +33,22 @@ export class HomePage {
       .getRemoteData("https://alphanews.live/json/cat/1")
       .then(data => {
         this.CypData = data[0];
+        this.CypData1 = data[1];
+        this.CypData2 = data[2];
       });
     this.getData
       .getRemoteData("https://alphanews.live/json/cat/2")
       .then(data => {
         this.PolData = data[0];
+        this.PolData1 = data[1];
+        this.PolData2 = data[2];
       });
     this.getData
       .getRemoteData("https://alphanews.live/json/cat/6")
       .then(data => {
         this.SportsData = data[0];
+        this.SportsData1 = data[1];
+        this.SportsData2 = data[2];
       });
     this.getData
       .getRemoteData("https://alphanews.live/json/cat/7")
@@ -48,4 +61,7 @@ export class HomePage {
         this.IntData = data[0];
       });
   }
+      openArticle(item) {
+        this.navCtrl.push("ArticlePage", { items: item });
+      }
 }
