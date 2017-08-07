@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from "@ionic-native/onesignal";
+import { Geolocation } from '@ionic-native/geolocation';
 import { GetdataProvider } from '../providers/getdata/getdata';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { GetdataProvider } from '../providers/getdata/getdata';
     StatusBar,
     SplashScreen,
     OneSignal,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GetdataProvider
   ]

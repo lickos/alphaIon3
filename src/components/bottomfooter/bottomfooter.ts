@@ -1,3 +1,4 @@
+import { NavController } from 'ionic-angular';
 import { Component } from "@angular/core";
 
 /**
@@ -15,12 +16,16 @@ export class BottomfooterComponent {
   showUp: boolean = true;
   showDown: boolean = false;
 
-  constructor() {}
+  constructor(public navCtrl: NavController) {}
 
   showthis() {
     this.showbottom = !this.showbottom;
     this.showUp = !this.showUp;
     this.showDown = !this.showDown;
+  }
+
+  openUseful() {
+    this.navCtrl.push('UsefulPage')
   }
 }
 
