@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RemovequotesPipe } from './removequotes/removequotes';
+import { CapFirstPipe } from './cap-first/cap-first';
 @NgModule({
-	declarations: [RemovequotesPipe],
+	declarations: [RemovequotesPipe,
+    CapFirstPipe],
 	imports: [],
-	exports: [RemovequotesPipe]
+	exports: [RemovequotesPipe,
+    CapFirstPipe]
 })
 export class PipesModule {}

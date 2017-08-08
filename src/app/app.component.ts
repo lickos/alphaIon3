@@ -100,4 +100,8 @@ export class MyApp {
   openPage(catId) {
     this.nav.push("CatpagePage", {url: this.url, catId: catId});
   }
+
+  openBlog() {
+    this.nav.push("BlogPage");
+  }
 }

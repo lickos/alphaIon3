@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -23,6 +24,12 @@ export class UsefulPage {
   time3: any;
   dateOfWeather3: any;
   icon3: any;
+  time4: any;
+  dateOfWeather4: any;
+  icon4: any;
+  time5: any;
+  dateOfWeather5: any;
+  icon5: any;
 
   constructor(public navCtrl: NavController, public getData: GetdataProvider, public geolocation: Geolocation, public navParams: NavParams) {
   }
@@ -36,6 +43,9 @@ export class UsefulPage {
       this.dataWeather = data;
       this.time1 = this.dataWeather.list[0].dt;
       this.time2 = this.dataWeather.list[1].dt;
+      this.time3 = this.dataWeather.list[2].dt;
+      this.time4 = this.dataWeather.list[3].dt;
+      this.time5 = this.dataWeather.list[4].dt;
       let date = new Date(this.time1*1000);
       let day = date.getDay();
       let month = date.getMonth();
@@ -49,6 +59,23 @@ export class UsefulPage {
       this.icon1 = "http://openweathermap.org/img/w/" + this.dataWeather.list[0].weather[0].icon + ".png";
       this.icon2 = "http://openweathermap.org/img/w/" + this.dataWeather.list[1].weather[0].icon + ".png";
       this.icon3 = "http://openweathermap.org/img/w/" + this.dataWeather.list[2].weather[0].icon + ".png";
+      this.icon4 = "http://openweathermap.org/img/w/" + this.dataWeather.list[3].weather[0].icon + ".png";
+      this.icon5 = "http://openweathermap.org/img/w/" + this.dataWeather.list[4].weather[0].icon + ".png";
+      let date3 = new Date(this.time3*1000);
+      let day3 = date3.getDay();
+      let month3 = date3.getMonth();
+      let year3 = date3.getFullYear();
+      this.dateOfWeather3 = day3 + "/" + month3 + "/" + year3;
+      let date4 = new Date(this.time4*1000);
+      let day4 = date4.getDay();
+      let month4 = date4.getMonth();
+      let year4 = date4.getFullYear();
+      this.dateOfWeather4 = day4 + "/" + month4 + "/" + year4;
+      let date5 = new Date(this.time4*1000);
+      let day5 = date5.getDay();
+      let month5 = date5.getMonth();
+      let year5 = date5.getFullYear();
+      this.dateOfWeather5 = day5 + "/" + month5 + "/" + year5;
     });
   })
 
