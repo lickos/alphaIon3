@@ -11,7 +11,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from "@ionic-native/onesignal";
 import { Geolocation } from '@ionic-native/geolocation';
 import { InAppBrowser } from '@ionic-native/in-app-browser'; 
+import { IonicStorageModule } from '@ionic/storage';
 import { GetdataProvider } from '../providers/getdata/getdata';
+import { StorageproviderProvider } from '../providers/storageprovider/storageprovider';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { GetdataProvider } from '../providers/getdata/getdata';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +36,8 @@ import { GetdataProvider } from '../providers/getdata/getdata';
     Geolocation,
     InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GetdataProvider
+    GetdataProvider,
+    StorageproviderProvider
   ]
 })
 export class AppModule {}

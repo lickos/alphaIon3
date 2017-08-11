@@ -5,6 +5,7 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class GetdataProvider {
   data: any;
+  cypData: any;
   constructor(public http: Http) {}
 
   getRemoteData(url) {
@@ -14,5 +15,12 @@ export class GetdataProvider {
         resolve(this.data);
       });
     });
+  }
+
+  setCypData(data) {
+    this.cypData = data;
+  }
+  getCypData() {
+    console.log(this.cypData);
   }
 }

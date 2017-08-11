@@ -35,6 +35,7 @@ export class HomePage {
         this.CypData = data[0];
         this.CypData1 = data[1];
         this.CypData2 = data[2];
+        this.getData.setCypData(data);
       });
     this.getData
       .getRemoteData("https://alphanews.live/json/cat/2")

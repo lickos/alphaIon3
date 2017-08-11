@@ -13,4 +13,8 @@ export class AlphaheaderComponent {
     this.navCtrl.push("HomePage");
   }
 
+  openFavs(){
+    this.navCtrl.push("FavoritesPage");
+  }
+
 }
