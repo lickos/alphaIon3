@@ -6,6 +6,7 @@ import "rxjs/add/operator/map";
 export class GetdataProvider {
   data: any;
   cypData: any;
+  PolData:any;
   constructor(public http: Http) {}
 
   getRemoteData(url) {
@@ -21,6 +22,13 @@ export class GetdataProvider {
     this.cypData = data;
   }
   getCypData() {
-    console.log(this.cypData);
+    return this.cypData;
+  }
+
+  setPolData(data) {
+    this.PolData = data;
+  }
+  getPolData() {
+    return this.PolData;
   }
 }

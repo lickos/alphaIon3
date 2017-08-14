@@ -9,7 +9,7 @@
           <img src="assets/img/logo-fullwhite.png" />
         </ion-col>
         <ion-col col-4>
-          <button ion-button icon-end clear class="noUpper noMargin" color="pnored"><b>Ρυθμίσεις </b><ion-icon class="headIcon" name="md-more"></ion-icon></button>
+          <button ion-button icon-end clear menuClose class="noUpper noMargin" (click)="openSettings()" color="pnored"><b>Ρυθμίσεις </b><ion-icon class="headIcon" name="md-more"></ion-icon></button>
         </ion-col>
       </ion-row>
       <ion-item class="greyClr" no-padding>
@@ -166,7 +166,7 @@
       <button class="lighter" menuClose ion-item (click)="openBlog()">
         Blog
       </button>
-      <button class="lighter" menuClose ion-item (click)="openOikonomia()">
+      <button class="lighter" menuClose ion-item (click)="openTemp()">
         Λούης Night Show
       </button>
       <ion-grid>

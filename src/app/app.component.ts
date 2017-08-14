@@ -104,4 +104,12 @@ export class MyApp {
   openBlog() {
     this.nav.push("BlogPage");
   }
+
+  openSettings() {
+    this.nav.push("SettingsPage");
+  }
+
+  openTemp() {
+    this.nav.push("TemphomePage");
+  }
 }
