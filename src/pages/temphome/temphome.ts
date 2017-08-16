@@ -31,7 +31,18 @@ export class TemphomePage {
 
   ionViewDidLoad() {
     this.storage.get('CypData').then((data)=>{
-      console.log("first");
+      if(data == null) {
+        console.log("OK");
+      } else this.initUi()
+    });
+  }
+
+  openArticle(item){
+    this.navCtrl.push("ArticlePage", {items:item})
+  }
+
+  initUi(){
+    this.storage.get('CypData').then((data)=>{
       this.CypData = data[0];
       this.CypData1 = data[1];
       this.CypData2 = data[2];
@@ -57,7 +68,8 @@ export class TemphomePage {
       this.IntData2 = data[2];
     });
   }
-  ionViewDidEnter() {
+
+  ionViewDidEnter(){
     this.getData
     .getRemoteData("https://alphanews.live/json/cat/1")
     .then(data => {
@@ -82,6 +94,7 @@ export class TemphomePage {
     .getRemoteData("https://alphanews.live/json/cat/5")
     .then(data => {
       this.storage.set('IntData', data);
+      this.navCtrl.push("HomePage");
     });
   }
 }

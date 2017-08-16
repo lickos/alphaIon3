@@ -6,6 +6,7 @@ import { Slides } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 import { Content } from "ionic-angular";
 import { AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -50,15 +51,17 @@ export class CatpagePage {
     public navParams: NavParams,
     public getdata: GetdataProvider,
     public strgPrvd: StorageproviderProvider,
-    public alert: AlertController
+    public alert: AlertController,
+    public storage: Storage
   ) {
-    this.urlTemp = this.navParams.get("url");
+    this.urlTemp = this.navParams.get('StorageData');
     this.catId = this.navParams.get("catId");
     this.url = this.urlTemp + this.catId;
+
   }
 
   ionViewDidLoad() {
-    this.getdata.getRemoteData(this.url).then(data => {
+    this.storage.get(this.urlTemp).then(data => {
       this.image0 = data[0];
       this.image1 = data[1];
       this.image2 = data[2];

@@ -1,7 +1,5 @@
 <ion-header>
-  <ion-navbar>
     <alphaheader></alphaheader>
-  </ion-navbar>
 </ion-header>
 
 
@@ -93,13 +91,13 @@
       <ion-row no-margin-bottom no-padding-bottom>
         <ion-col col-6>
           <img src="{{CypData1?.image_url}}"/>
-          <h2>{{CypData1?.title}}</h2>
-          <p>{{CypData1?.teaser}}</p>
+          <h2>{{CypData1?.title | removequotes}}</h2>
+          <p>{{CypData1?.teaser | removequotes}}</p>
         </ion-col>
         <ion-col col-6>
           <img src="{{CypData2?.image_url}}"/>
-          <h2>{{CypData2?.title}}</h2>
-          <p>{{CypData2?.teaser}}</p>
+          <h2>{{CypData2?.title | removequotes}}</h2>
+          <p>{{CypData2?.teaser | removequotes}}</p>
         </ion-col>
       </ion-row>
       <ion-row no-margin-top no-padding>
@@ -128,14 +126,14 @@
       <ion-item id="politiki"><hr/><p>ΠΟΛΙΤΙΚΗ</p></ion-item>
       <ion-row no-margin-bottom no-padding-bottom>
         <ion-col col-6>
-          <img src="{{CypData1?.image_url}}"/>
-          <h2>{{PolData1?.title}}</h2>
-          <p>{{PolData1?.teaser}}</p>
+          <img src="{{PolData1?.image_url}}"/>
+          <h2>{{PolData1?.title | removequotes}}</h2>
+          <p>{{PolData1?.teaser | removequotes}}</p>
         </ion-col>
         <ion-col col-6>
-          <img src="{{CypData2?.image_url}}"/>
-          <h2>{{PolData2?.title}}</h2>
-          <p>{{PolData2?.teaser}}</p>
+          <img src="{{PolData2?.image_url}}"/>
+          <h2>{{PolData2?.title | removequotes}}</h2>
+          <p>{{PolData2?.teaser | removequotes}}</p>
         </ion-col>
       </ion-row>
       <ion-row no-margin-top no-padding>
@@ -161,14 +159,14 @@
       <ion-item id="sports"><hr/><p>ΑΘΛΗΤΙΚΑ</p></ion-item>
       <ion-row no-margin-bottom no-padding-bottom>
         <ion-col col-6>
-          <img src="{{CypData1?.image_url}}"/>
-          <h2>{{SportsData1?.title}}</h2>
-          <p>{{SportsData1?.teaser}}</p>
+          <img src="{{SportsData1?.image_url}}"/>
+          <h2>{{SportsData1?.title | removequotes}}</h2>
+          <p>{{SportsData1?.teaser | removequotes}}</p>
         </ion-col>
         <ion-col col-6>
-          <img src="{{CypData2?.image_url}}"/>
-          <h2>{{SportsData2?.title}}</h2>
-          <p>{{SportsData2?.teaser}}</p>
+          <img src="{{SportsData2?.image_url}}"/>
+          <h2>{{SportsData2?.title | removequotes}}</h2>
+          <p>{{SportsData2?.teaser | removequotes}}</p>
         </ion-col>
       </ion-row>
       <ion-row no-margin-top no-padding>

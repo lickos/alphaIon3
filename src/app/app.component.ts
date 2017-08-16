@@ -12,8 +12,7 @@ import { MenuController } from 'ionic-angular';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: string = "HomePage";
-  url: string = "https://alphanews.live/json/cat/";
+  rootPage: string = "TemphomePage";
   showMeCyp: boolean = false;
   showMePol: boolean = false;
   showMeSports: boolean = false;
@@ -51,7 +50,7 @@ export class MyApp {
     if(this.showMeCyp) {
       this.showMeCyp = false;
       this.menuCtrl.close();
-       this.nav.push("CatpagePage", { url: this.url, catId: '1' });
+      this.nav.push("CatpagePage", { url: "https://alphanews.live/json/cat/1", StorageData: 'CypData' });
     } else {
       this.showMeCyp = true;
     }
@@ -61,7 +60,7 @@ export class MyApp {
     if(this.showMePol) {
       this.showMePol = false;
       this.menuCtrl.close();
-       this.nav.push("CatpagePage", { url: this.url, catId: '2' });
+       this.nav.push("CatpagePage", { url: "https://alphanews.live/json/cat/2", StorageData: 'PolData' });
     } else {
       this.showMePol = true;
     }
@@ -71,7 +70,7 @@ export class MyApp {
     if(this.showMeSports) {
       this.showMeSports = false;
       this.menuCtrl.close();
-       this.nav.push("CatpagePage", { url: this.url, catId: '6' });
+       this.nav.push("CatpagePage", { url: "https://alphanews.live/json/cat/6", StorageData: 'SportsData' });
     } else {
       this.showMeSports = true;
     }
@@ -81,7 +80,7 @@ export class MyApp {
     if(this.showMeHealth) {
       this.showMeHealth = false;
       this.menuCtrl.close();
-       this.nav.push("CatpagePage", { url: this.url, catId: '8' });
+       this.nav.push("CatpagePage", { url: "https://alphanews.live/json/cat/8", StorageData: 'HealthData' });
     } else {
       this.showMeHealth = true;
     }
@@ -91,14 +90,14 @@ export class MyApp {
     if(this.showMeEnt) {
       this.showMeEnt = false;
       this.menuCtrl.close();
-       this.nav.push("CatpagePage", { url: this.url, catId: '7' });
+       this.nav.push("CatpagePage", { url: "https://alphanews.live/json/cat/7", StorageData: 'EntData' });
     } else {
       this.showMeEnt = true;
     }
   }
 
   openPage(catId) {
-    this.nav.push("CatpagePage", {url: this.url, catId: catId});
+    this.nav.push("CatpagePage", {url: "https://alphanews.live/json/cat/", catId: catId});
   }
 
   openBlog() {

@@ -10,18 +10,25 @@ import { GetdataProvider } from "../../providers/getdata/getdata";
 })
 export class HomePage {
   CypData: any;
-  PolData: any;
-  SportsData: any;
-  EntData: any;
-  IntData: any;
-  badgeClass: string;
-  backImage: string = "http://alphanews.live/sites/default/files/styles/media_image/public/2017-08/20631418_10213406715825402_2006238752_n.png?itok=bD437OY-";
   CypData1: any;
   CypData2: any;
+  PolData: any;
   PolData1: any;
   PolData2: any;
+  SportsData: any;
   SportsData1:any;
   SportsData2:any;
+  EntData: any;
+  EntData1: any;
+  EntData2: any;
+  IntData: any;
+  IntData1: any;
+  IntData2: any;
+  badgeClass: string;
+  backImage: string = "http://alphanews.live/sites/default/files/styles/media_image/public/2017-08/20631418_10213406715825402_2006238752_n.png?itok=bD437OY-";
+
+
+
 
   constructor(
     public navCtrl: NavController,
@@ -31,41 +38,35 @@ export class HomePage {
   ) {}
 
   ionViewDidLoad() {
-    this.getData
-      .getRemoteData("https://alphanews.live/json/cat/1")
+    this.storage.get("CypData")
       .then(data => {
         this.CypData = data[0];
         this.CypData1 = data[1];
         this.CypData2 = data[2];
-        this.storage.set('CypData', data);
       });
-    this.getData
-      .getRemoteData("https://alphanews.live/json/cat/2")
+    this.storage.get("PolData")
       .then(data => {
         this.PolData = data[0];
         this.PolData1 = data[1];
         this.PolData2 = data[2];
-        this.storage.set('PolData', data);
       });
-    this.getData
-      .getRemoteData("https://alphanews.live/json/cat/6")
+    this.storage.get("SportsData")
       .then(data => {
         this.SportsData = data[0];
         this.SportsData1 = data[1];
         this.SportsData2 = data[2];
-        this.storage.set('SportsData', data);
       });
-    this.getData
-      .getRemoteData("https://alphanews.live/json/cat/7")
+    this.storage.get("EntData")
       .then(data => {
         this.EntData = data[0];
-        this.storage.set('EntData', data);
+        this.EntData1 = data[1];
+        this.EntData2 = data[2];
       });
-    this.getData
-      .getRemoteData("https://alphanews.live/json/cat/5")
+    this.storage.get("IntData")
       .then(data => {
         this.IntData = data[0];
-        this.storage.set('IntData', data);
+        this.IntData1 = data[1];
+        this.IntData2 = data[2];
       });
   }
       openArticle(item) {
