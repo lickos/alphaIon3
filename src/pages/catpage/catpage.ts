@@ -1,12 +1,12 @@
-import { StorageproviderProvider } from './../../providers/storageprovider/storageprovider';
+import { StorageproviderProvider } from "./../../providers/storageprovider/storageprovider";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { GetdataProvider } from "../../providers/getdata/getdata";
 import { Slides } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 import { Content } from "ionic-angular";
-import { AlertController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { AlertController } from "ionic-angular";
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -19,7 +19,7 @@ export class CatpagePage {
   url: string;
   items: any;
   badgeClass: string;
-  image0: string;
+  image0: any;
   image1: string;
   image2: string;
   image3: string;
@@ -29,22 +29,25 @@ export class CatpagePage {
   image7: string;
   image8: string;
   image9: string;
+  stData: any;
   catId: string;
+  tempData: any;
   titleColor: string;
   urlTemp: string;
   catIdTemp: any;
   nextCatId: string;
   showSubmenu: boolean = false;
-  isInFavs0:any = false;
-  isInFavs1:any = false;
-  isInFavs2:any = false;
-  isInFavs3:any = false;
-  isInFavs4:any = false;
-  isInFavs5:any = false;
-  isInFavs6:any = false;
-  isInFavs7:any = false;
-  isInFavs8:any = false;
-  isInFavs9:any = false;
+  storageArray: any;
+  isInFavs0: any = false;
+  isInFavs1: any = false;
+  isInFavs2: any = false;
+  isInFavs3: any = false;
+  isInFavs4: any = false;
+  isInFavs5: any = false;
+  isInFavs6: any = false;
+  isInFavs7: any = false;
+  isInFavs8: any = false;
+  isInFavs9: any = false;
 
   constructor(
     public navCtrl: NavController,
@@ -54,14 +57,12 @@ export class CatpagePage {
     public alert: AlertController,
     public storage: Storage
   ) {
-    this.urlTemp = this.navParams.get('StorageData');
-    this.catId = this.navParams.get("catId");
-    this.url = this.urlTemp + this.catId;
-
+    this.catId = this.navParams.get("CatId");
   }
 
   ionViewDidLoad() {
-    this.storage.get(this.urlTemp).then(data => {
+    this.storage.get(this.navParams.get("StorageData")).then(data => {
+      console.log(data);
       this.image0 = data[0];
       this.image1 = data[1];
       this.image2 = data[2];
@@ -73,14 +74,15 @@ export class CatpagePage {
       this.image8 = data[8];
       this.image9 = data[9];
       this.items = data;
-      this.strgPrvd.checkIfInfavs(data[0].nid).then((val)=>{
-        console.log(val)
-        this.isInFavs0 = val;
-      });
-      this.strgPrvd.checkIfInfavs(data[1].nid).then((val)=>{
-        console.log(val);
-        this.isInFavs1 = val;
-      });
+
+      // this.strgPrvd.checkIfInfavs(this.tempData[0].nid).then((val)=>{
+      //   console.log(val)
+      //   this.isInFavs0 = val;
+      // });
+      // this.strgPrvd.checkIfInfavs(this.tempData[1].nid).then((val)=>{
+      //   console.log(val);
+      //   this.isInFavs1 = val;
+      // });
       // this.strgPrvd.checkIfInfavs(data[2].nid).then((val)=>{
       //   console.log(data[2].nid)
       //   this.isInFavs2 = val;
@@ -106,7 +108,7 @@ export class CatpagePage {
       // this.strgPrvd.checkIfInfavs(data[9].nid).then((val)=>{
       //   this.isInFavs9 = val;
       // });
-      switch (this.items[0].category) {
+      switch (this.image0.category) {
         case "Κύπρος":
           this.badgeClass = "CyprusClass";
           this.titleColor = "CyprusColor";
@@ -145,30 +147,51 @@ export class CatpagePage {
       }
     });
   }
-
   goToNextCat(e) {
+    this.storageArray = [
+      "CypData",
+      "PolData",
+      "",
+      "GreeceData",
+      "IntData",
+      "SportsData",
+      "EntData",
+      "HealthData",
+      "EconomyData"
+    ];
     if (e.direction == 2) {
       if (this.catId != "9") {
         this.catIdTemp = parseInt(this.catId);
-        this.catIdTemp += 1;
+        if (this.catIdTemp == 2) {
+          this.catIdTemp += 2;
+        } else this.catIdTemp += 1;
+        this.stData = this.storageArray[this.catIdTemp - 1];
         this.nextCatId = this.catIdTemp.toString();
         this.catId = this.nextCatId;
         this.navCtrl.push(CatpagePage, {
-          url: this.urlTemp,
-          catId: this.nextCatId
+          StorageData: this.stData,
+          CatId: this.nextCatId
         });
-      } else this.navCtrl.push(CatpagePage, { url: this.urlTemp, catId: "1" });
+      } else
+        this.navCtrl.push(CatpagePage, { StorageData: "CypData", CatId: "1" });
     } else if (e.direction == 4) {
       if (this.catId != "1") {
         this.catIdTemp = parseInt(this.catId);
-        this.catIdTemp -= 1;
+        if (this.catIdTemp == 4) {
+          this.catIdTemp -= 2;
+        } else this.catIdTemp -= 1;
+        this.stData = this.storageArray[this.catIdTemp - 1];
         this.nextCatId = this.catIdTemp.toString();
         this.catId = this.nextCatId;
         this.navCtrl.push(CatpagePage, {
-          url: this.urlTemp,
-          catId: this.nextCatId
+          StorageData: this.stData,
+          CatId: this.nextCatId
         });
-      } else this.navCtrl.push(CatpagePage, { url: this.urlTemp, catId: "9" });
+      } else
+        this.navCtrl.push(CatpagePage, {
+          StorageData: "EconomyData",
+          catId: "9"
+        });
     }
   }
 
@@ -187,11 +210,10 @@ export class CatpagePage {
 
   alertFav() {
     let alertBox = this.alert.create({
-      title: 'Already in Favorites',
-      subTitle: 'Το άρθρο αυτό είναι ήδη στα Αγαπημένα',
-      buttons: ['OK']
+      title: "Already in Favorites",
+      subTitle: "Το άρθρο αυτό είναι ήδη στα Αγαπημένα",
+      buttons: ["OK"]
     });
     alertBox.present();
   }
-
 }
