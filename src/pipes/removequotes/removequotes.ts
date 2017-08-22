@@ -1,12 +1,12 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'removequotes',
+  name: "removequotes"
 })
 export class RemovequotesPipe implements PipeTransform {
   transform(value: string, ...args) {
     if (value) {
-      return value.replace(/&quot;|&#039;/g, "'");
+      return value.replace(/&quot;|&#039;|<br\s*\/?>/g, "'");
     }
   }
 }

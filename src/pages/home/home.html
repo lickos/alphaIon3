@@ -125,7 +125,7 @@
     <ion-item>
       <img src="http://ca.cubecdn.net/20170731094345_wmid_135455.jpg" />
     </ion-item>
-    <ion-item text-wrap no-padding>
+    <ion-item text-wrap no-padding *ngIf="Pol">
       <ion-grid>
         <ion-item id="politiki">
           <hr/>
@@ -161,7 +161,7 @@
         </ion-row>
       </ion-grid>
     </ion-item>
-    <ion-item text-wrap no-padding>
+    <ion-item text-wrap no-padding *ngIf="Sports">
       <ion-grid>
         <ion-item id="sports">
           <hr/>
@@ -197,7 +197,7 @@
         </ion-row>
       </ion-grid>
     </ion-item>
-    <ion-item text-wrap no-padding>
+    <ion-item text-wrap no-padding *ngIf="Greece">
       <ion-grid>
         <ion-item id="greece">
           <hr/>
@@ -210,7 +210,7 @@
             <p>{{GreeceData?.teaser | removequotes}}</p>
           </ion-col>
           <ion-col col-6>
-            <img src="{{SportsData2?.image_url}}" />
+            <img src="{{SportsData1?.image_url}}" />
             <h2>{{GreeceData1?.title | removequotes}}</h2>
             <p>{{GreeceData1?.teaser | removequotes}}</p>
           </ion-col>
@@ -226,6 +226,150 @@
           <ion-col col-6>
             <small>
             <ion-icon item-start name="clock"></ion-icon>{{GreeceData1?.date}} - {{GreeceData1?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item text-wrap no-padding *ngIf="Ent">
+      <ion-grid>
+        <ion-item id="entertainment">
+          <hr/>
+          <p>ΨΥΧΑΓΩΓΙΑ</p>
+        </ion-item>
+        <ion-row no-margin-bottom no-padding-bottom>
+          <ion-col col-6>
+            <img src="{{EntData1?.image_url}}" />
+            <h2>{{EntData1?.title | removequotes}}</h2>
+            <p>{{EntData1?.teaser | removequotes}}</p>
+          </ion-col>
+          <ion-col col-6>
+            <img src="{{EntData2?.image_url}}" />
+            <h2>{{EntData2?.title | removequotes}}</h2>
+            <p>{{EntData2?.teaser | removequotes}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row no-margin-top no-padding>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{EntData1?.date}} - {{EntData1?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{EntData2?.date}} - {{EntData2?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item text-wrap no-padding *ngIf="Int">
+      <ion-grid>
+        <ion-item id="international">
+          <hr/>
+          <p>ΔΙΕΘΝΗ</p>
+        </ion-item>
+        <ion-row no-margin-bottom no-padding-bottom>
+          <ion-col col-6>
+            <img src="{{IntData1?.image_url}}" />
+            <h2>{{IntData1?.title | removequotes}}</h2>
+            <p>{{IntData1?.teaser | removequotes}}</p>
+          </ion-col>
+          <ion-col col-6>
+            <img src="{{SportsData2?.image_url}}" />
+            <h2>{{IntData2?.title | removequotes}}</h2>
+            <p>{{IntData2?.teaser | removequotes}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row no-margin-top no-padding>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{IntData1?.date}} - {{IntData1?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{IntData2?.date}} - {{IntData2?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item text-wrap no-padding *ngIf="Health">
+      <ion-grid>
+        <ion-item id="health">
+          <hr/>
+          <p>ΥΓΕΙΑ</p>
+        </ion-item>
+        <ion-row no-margin-bottom no-padding-bottom>
+          <ion-col col-6>
+            <img src="{{HealthData?.image_url}}" />
+            <h2>{{HealthData?.title | removequotes}}</h2>
+            <p>{{HealthData?.teaser | removequotes}}</p>
+          </ion-col>
+          <ion-col col-6>
+            <img src="{{HealthData1?.image_url}}" />
+            <h2>{{HealthData1?.title | removequotes}}</h2>
+            <p>{{HealthData1?.teaser | removequotes}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row no-margin-top no-padding>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{HealthData?.date}} - {{HealthData?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{HealthData1?.date}} - {{HealthData1?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item text-wrap no-padding *ngIf="Economy">
+      <ion-grid>
+        <ion-item id="economy">
+          <hr/>
+          <p>ΟΙΚΟΝΟΜΙΑ</p>
+        </ion-item>
+        <ion-row no-margin-bottom no-padding-bottom>
+          <ion-col col-6>
+            <img src="{{EconomyData?.image_url}}" />
+            <h2>{{EconomyData?.title | removequotes}}</h2>
+            <p>{{EconomyData?.teaser | removequotes}}</p>
+          </ion-col>
+          <ion-col col-6>
+            <img src="{{EconomyData1?.image_url}}" />
+            <h2>{{EconomyData1?.title | removequotes}}</h2>
+            <p>{{EconomyData1?.teaser | removequotes}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row no-margin-top no-padding>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{EconomyData?.date}} - {{EconomyData?.time}}
+            <ion-icon color="pnored" item-end name="share"></ion-icon>
+            <ion-icon color="pnored" item-end name="heart"></ion-icon>
+          </small>
+          </ion-col>
+          <ion-col col-6>
+            <small>
+            <ion-icon item-start name="clock"></ion-icon>{{EconomyData1?.date}} - {{EconomyData1?.time}}
             <ion-icon color="pnored" item-end name="share"></ion-icon>
             <ion-icon color="pnored" item-end name="heart"></ion-icon>
           </small>

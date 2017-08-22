@@ -75,39 +75,40 @@ export class CatpagePage {
       this.image9 = data[9];
       this.items = data;
 
-      // this.strgPrvd.checkIfInfavs(this.tempData[0].nid).then((val)=>{
-      //   console.log(val)
-      //   this.isInFavs0 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(this.tempData[1].nid).then((val)=>{
-      //   console.log(val);
-      //   this.isInFavs1 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[2].nid).then((val)=>{
-      //   console.log(data[2].nid)
-      //   this.isInFavs2 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[3].nid).then((val)=>{
-      //   this.isInFavs3 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[4].nid).then((val)=>{
-      //   this.isInFavs4 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[5].nid).then((val)=>{
-      //   this.isInFavs5 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[6].nid).then((val)=>{
-      //   this.isInFavs6 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[7].nid).then((val)=>{
-      //   this.isInFavs7 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[8].nid).then((val)=>{
-      //   this.isInFavs8 = val;
-      // });
-      // this.strgPrvd.checkIfInfavs(data[9].nid).then((val)=>{
-      //   this.isInFavs9 = val;
-      // });
+      this.strgPrvd.checkIfInfavs(data[0].nid).then(val => {
+        console.log(val);
+        this.isInFavs0 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[1].nid).then(val => {
+        console.log("1p " + data[1].nid);
+        console.log("val " + val);
+        this.isInFavs1 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[2].nid).then(val => {
+        console.log(data[2].nid);
+        this.isInFavs2 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[3].nid).then(val => {
+        this.isInFavs3 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[4].nid).then(val => {
+        this.isInFavs4 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[5].nid).then(val => {
+        this.isInFavs5 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[6].nid).then(val => {
+        this.isInFavs6 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[7].nid).then(val => {
+        this.isInFavs7 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[8].nid).then(val => {
+        this.isInFavs8 = val;
+      });
+      this.strgPrvd.checkIfInfavs(data[9].nid).then(val => {
+        this.isInFavs9 = val;
+      });
       switch (this.image0.category) {
         case "Κύπρος":
           this.badgeClass = "CyprusClass";
@@ -172,8 +173,7 @@ export class CatpagePage {
           StorageData: this.stData,
           CatId: this.nextCatId
         });
-      } else
-        this.navCtrl.push(CatpagePage, { StorageData: "CypData", CatId: "1" });
+      } else this.navCtrl.push(CatpagePage, { StorageData: "CypData", CatId: "1" });
     } else if (e.direction == 4) {
       if (this.catId != "1") {
         this.catIdTemp = parseInt(this.catId);
@@ -204,11 +204,23 @@ export class CatpagePage {
     this.content.scrollToBottom;
   }
 
-  setFav(item) {
+  setFav0(item) {
     this.strgPrvd.setFavs(item);
+    this.isInFavs0 = true;
+  }
+
+  setFav1(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs1 = true;
+  }
+
+  setFav2(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs2 = true;
   }
 
   alertFav() {
+    this.storage.remove("favs");
     let alertBox = this.alert.create({
       title: "Already in Favorites",
       subTitle: "Το άρθρο αυτό είναι ήδη στα Αγαπημένα",

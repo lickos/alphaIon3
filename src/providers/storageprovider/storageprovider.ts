@@ -15,7 +15,7 @@ export class StorageproviderProvider {
     console.log("Data added" + item);
     this.storage.get("favs").then(data => {
       this.items = data;
-      if (data != null || data != undefined) {
+      if (data != null && data != undefined) {
         this.items.push(item);
         this.storage.set("favs", this.items);
       } else {
@@ -43,7 +43,9 @@ export class StorageproviderProvider {
           resolve(false);
         } else {
           for (let item of this.items) {
-            if (item.nid == artId) {
+            console.log("itemnid " + item.nid);
+            console.log("artId " + artId);
+            if (item.nid === artId) {
               resolve(true);
             } else resolve(false);
           }
@@ -54,7 +56,8 @@ export class StorageproviderProvider {
 
   setCats() {
     this.storage.get("CategoriesArray").then(data => {
-      if (data == null  || data == undefined) {
+      console.log(data);
+      if (data == null || data == undefined) {
         this.storage.set("CategoriesArray", this.TempArray);
       }
     });
