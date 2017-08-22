@@ -78,6 +78,7 @@ export class CatpagePage {
       this.strgPrvd.checkIfInfavs(data[0].nid).then(val => {
         console.log(val);
         this.isInFavs0 = val;
+        console.log(this.isInFavs0);
       });
       this.strgPrvd.checkIfInfavs(data[1].nid).then(val => {
         console.log("1p " + data[1].nid);
@@ -173,7 +174,8 @@ export class CatpagePage {
           StorageData: this.stData,
           CatId: this.nextCatId
         });
-      } else this.navCtrl.push(CatpagePage, { StorageData: "CypData", CatId: "1" });
+      } else
+        this.navCtrl.push(CatpagePage, { StorageData: "CypData", CatId: "1" });
     } else if (e.direction == 4) {
       if (this.catId != "1") {
         this.catIdTemp = parseInt(this.catId);

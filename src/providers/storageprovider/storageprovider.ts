@@ -35,19 +35,18 @@ export class StorageproviderProvider {
     });
   }
 
-  checkIfInfavs(artId: string) {
-    return new Promise(resolve => {
+  checkIfInfavs(artId: string): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
       this.storage.get("favs").then(data => {
         this.items = data;
         if (this.items == null) {
-          resolve(false);
+          return false;
         } else {
           for (let item of this.items) {
-            console.log("itemnid " + item.nid);
-            console.log("artId " + artId);
-            if (item.nid === artId) {
-              resolve(true);
-            } else resolve(false);
+            if (item.nid == artId) {
+              console.log("Into the trure" + item.nid);
+              return true;
+            } else return false;
           }
         }
       });
