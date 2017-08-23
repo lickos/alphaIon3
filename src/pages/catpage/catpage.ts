@@ -16,9 +16,23 @@ import { Storage } from "@ionic/storage";
 export class CatpagePage {
   @ViewChild(Content) content: Content;
   @ViewChild(Slides) slides: Slides;
-  url: string;
+  url: string = "https://alphanews.live/json/cat/";
+  catNo: string;
+  page: string = "0";
+  finUrl: string;
   items: any;
+  storageData: string;
   badgeClass: string;
+  pic0: string = "assets/img/logo.svg";
+  pic1: string = "assets/img/logo.svg";
+  pic2: string = "assets/img/logo.svg";
+  pic3: string = "assets/img/logo.svg";
+  pic4: string = "assets/img/logo.svg";
+  pic5: string = "assets/img/logo.svg";
+  pic6: string = "assets/img/logo.svg";
+  pic7: string = "assets/img/logo.svg";
+  pic8: string = "assets/img/logo.svg";
+  pic9: string = "assets/img/logo.svg";
   image0: any;
   image1: string;
   image2: string;
@@ -62,8 +76,8 @@ export class CatpagePage {
 
   ionViewDidLoad() {
     this.storage.get(this.navParams.get("StorageData")).then(data => {
-      console.log(data);
       this.image0 = data[0];
+      this.storage.set("CypData", data);
       this.image1 = data[1];
       this.image2 = data[2];
       this.image3 = data[3];
@@ -76,17 +90,12 @@ export class CatpagePage {
       this.items = data;
 
       this.strgPrvd.checkIfInfavs(data[0].nid).then(val => {
-        console.log(val);
         this.isInFavs0 = val;
-        console.log(this.isInFavs0);
       });
       this.strgPrvd.checkIfInfavs(data[1].nid).then(val => {
-        console.log("1p " + data[1].nid);
-        console.log("val " + val);
         this.isInFavs1 = val;
       });
       this.strgPrvd.checkIfInfavs(data[2].nid).then(val => {
-        console.log(data[2].nid);
         this.isInFavs2 = val;
       });
       this.strgPrvd.checkIfInfavs(data[3].nid).then(val => {
@@ -114,34 +123,50 @@ export class CatpagePage {
         case "Κύπρος":
           this.badgeClass = "CyprusClass";
           this.titleColor = "CyprusColor";
+          this.catNo = "1";
+          this.storageData = "CypData";
           break;
         case "Πολιτική":
           this.badgeClass = "PolitikiClass";
           this.titleColor = "PolitikiColor";
+          this.catNo = "2";
+          this.storageData = "PolData";
           break;
         case "Ελλάδα":
           this.badgeClass = "GreeceClass";
           this.titleColor = "GreeceColor";
+          this.catNo = "4";
+          this.storageData = "GreeceData";
           break;
         case "Διεθνή":
           this.badgeClass = "DiethniClass";
           this.titleColor = "DiethniColor";
+          this.catNo = "5";
+          this.storageData = "IntData";
           break;
         case "Αθλητικά":
           this.badgeClass = "SportsClass";
           this.titleColor = "SportsColor";
+          this.catNo = "6";
+          this.storageData = "SportsData";
           break;
         case "Ψυχαγωγία":
           this.badgeClass = "EntertainmentClass";
           this.titleColor = "EntertainmentColor";
+          this.catNo = "7";
+          this.storageData = "EntData";
           break;
         case "Υγεία":
           this.badgeClass = "HealthClass";
           this.titleColor = "HealthColor";
+          this.catNo = "8";
+          this.storageData = "HealthData";
           break;
         case "Οικονομία":
           this.badgeClass = "EconomyClass";
           this.titleColor = "EconomyColor";
+          this.catNo = "9";
+          this.storageData = "EconomyData";
           break;
         default:
           this.badgeClass = "DefaultClass";
@@ -149,6 +174,37 @@ export class CatpagePage {
       }
     });
   }
+
+  ionViewDidEnter() {
+    this.finUrl = this.url + this.catNo + "?page=" + this.page;
+    this.getdata.getRemoteData(this.finUrl).then(data => {
+      this.image0 = data[0];
+      this.pic0 = data[0].image_url;
+      this.image1 = data[1];
+      this.pic1 = data[1].image_url;
+      this.image2 = data[2];
+      this.pic2 = data[2].image_url;
+      this.image3 = data[3];
+      this.pic3 = data[3].image_url;
+      this.image4 = data[4];
+      this.pic4 = data[4].image_url;
+      this.image5 = data[5];
+      this.pic5 = data[5].image_url;
+      this.image6 = data[6];
+      this.pic6 = data[6].image_url;
+      this.image7 = data[7];
+      this.pic7 = data[7].image_url;
+      this.image8 = data[8];
+      this.pic1 = data[8].image_url;
+      this.image9 = data[9];
+      this.pic1 = data[9].image_url;
+      this.items = data;
+      this.storage.set(this.storageData, data).then(() => {
+        console.log("Success " + this.storageData);
+      });
+    });
+  }
+
   goToNextCat(e) {
     this.storageArray = [
       "CypData",
@@ -214,6 +270,41 @@ export class CatpagePage {
   setFav1(item) {
     this.strgPrvd.setFavs(item);
     this.isInFavs1 = true;
+  }
+
+  setFav3(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs3 = true;
+  }
+
+  setFav4(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs4 = true;
+  }
+
+  setFav5(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs5 = true;
+  }
+
+  setFav6(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs6 = true;
+  }
+
+  setFav7(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs7 = true;
+  }
+
+  setFav8(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs8 = true;
+  }
+
+  setFav9(item) {
+    this.strgPrvd.setFavs(item);
+    this.isInFavs9 = true;
   }
 
   setFav2(item) {

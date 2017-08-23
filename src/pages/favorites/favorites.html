@@ -7,6 +7,7 @@
   <ion-title>
     <h2 class="centerAlign">Αγαπημένα</h2>
   </ion-title>
+  <ion-searchbar animated="true" [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
   <ion-list>
     <ion-item-sliding>
       <ion-item no-padding *ngFor="let item of items">

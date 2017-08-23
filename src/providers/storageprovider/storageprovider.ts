@@ -36,27 +36,22 @@ export class StorageproviderProvider {
   }
 
   checkIfInfavs(artId: string): Promise<boolean> {
-    return new Promise<boolean>(resolve => {
-      this.getFavs().then(data => {
-        this.items = data;
-        console.log(this.items);
-        if (this.items == null) {
-          console.log("null array");
-          return Promise.resolve(false);
-        } else {
-          for (let item of this.items) {
-            console.log(item);
-            console.log("item.nid " + item.nid);
-            console.log("artId " + artId);
-            console.log(item.nid == artId);
-            if (item.nid == artId) {
-              console.log("Into the trure" + item.nid);
-              return Promise.resolve(true);
-            }
-          }
-        }
+    return new Promise(resolve => {
+      this.storage.get("favs").then(data => {
+        resolve(data && this.checkArray(artId, data));
       });
     });
+  }
+
+  checkArray(item, array) {
+    for (let items of array) {
+      console.log("item.nid " + items.nid);
+      console.log("item " + item);
+      if (items.nid == item) {
+        return true;
+      }
+    }
+    return false;
   }
 
   setCats() {
