@@ -10,13 +10,9 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 export class FavoritesPage {
   items: any;
   pic: string = "assets/img/icon.png";
-  searchTerm: string;
+  searchTerm: string = "";
 
-  constructor(
-    public navCtrl: NavController,
-    public strgprvd: StorageproviderProvider,
-    public navParams: NavParams
-  ) {}
+  constructor(public navCtrl: NavController, public strgprvd: StorageproviderProvider, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     this.strgprvd.getFavs().then(data => {
@@ -31,13 +27,15 @@ export class FavoritesPage {
     this.navCtrl.push("ArticlePage", { items: item });
   }
 
-  setFilteredItems() {
-    this.items = this.filterItems(this.searchTerm);
-  }
+  getItems(ev: any) {
+    // set val to the value of the searchbar
+    let val = ev.target.value;
 
-  filterItems(searchTerm) {
-    return this.items.filter(item => {
-      return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-    });
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != "") {
+      this.items = this.items.filter(item => {
+        return item.title.toLowerCase().indexOf(val.toLowerCase()) > -1;
+      });
+    }
   }
 }
